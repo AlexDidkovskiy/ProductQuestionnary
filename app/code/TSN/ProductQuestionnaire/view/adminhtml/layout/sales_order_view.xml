@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="TSN_ProductQuestionnaire::css/questionnaire.css"/>
+    </head>
+    <body>
+        <referenceBlock name="order_tab_info">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">TSN_ProductQuestionnaire::order/view/tab/info.phtml</argument>
+            </action>
+            <block class="Magento\Sales\Block\Adminhtml\Order\View\Items"
+                   name="order_product_question"
+                   template="TSN_ProductQuestionnaire::order/view/items.phtml" />
+        </referenceBlock>
+
+    </body>
+</page>

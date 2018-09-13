@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="TSN\ProductQuestionnaire\Api\Model\QuestionnaireInterface"
+                type="TSN\ProductQuestionnaire\Model\Questionnaire" />
+    <preference for="TSN\ProductQuestionnaire\Api\Model\GroupInterface"
+                type="TSN\ProductQuestionnaire\Model\Group" />
+    <preference for="TSN\ProductQuestionnaire\Api\Model\QuestionnaireRepositoryInterface"
+                type="TSN\ProductQuestionnaire\Model\QuestionnaireRepository" />
+    <preference for="TSN\ProductQuestionnaire\Api\Model\GroupRepositoryInterface"
+                type="TSN\ProductQuestionnaire\Model\GroupRepository" />
+    <preference for="Magento\Sales\Block\Adminhtml\Order\View\Tab\Info"
+                type="TSN\ProductQuestionnaire\Block\Adminhtml\Order\View\Tab\Info" />
+    <preference for="Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider"
+                type="TSN\ProductQuestionnaire\Ui\DataProvider\Product\ProductDataProvider" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="questionnaire_grid_listing_data_source" xsi:type="string">TSN\ProductQuestionnaire\Model\ResourceModel\Questionnaire\Grid\Collection</item>
+                <item name="group_grid_listing_data_source" xsi:type="string">TSN\ProductQuestionnaire\Model\ResourceModel\Group\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Quote\Model\Quote\Item\ToOrderItem">
+        <plugin name="Quote_item_to_order_item" type="TSN\ProductQuestionnaire\Model\Data\Plugin\Quote\QuoteToOrderItem"/>
+    </type>
+</config>

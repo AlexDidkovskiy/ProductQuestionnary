@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author TSN-Media Team
+ * @copyright Copyright (c) 2018 TSN-Media (https://tsn-media.com)
+ * @package TSN_ProductQuestionnaire
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root">
+        <block class="Magento\Catalog\Block\Product\View" as="questionnaire_success_message"
+               template="TSN_ProductQuestionnaire::success_message.phtml">
+            <block class="TSN\ProductQuestionnaire\Block\Message" name="questionnaire.message" template="message.phtml"/>
+            <block class="TSN\ProductQuestionnaire\Block\Product\ConfigurableOption" as="product_option" template="product/option.phtml"/>
+            <block class="TSN\ProductQuestionnaire\Block\Product\Image" as="product_image" template="product/image.phtml"/>
+            <block class="TSN\ProductQuestionnaire\Block\CartInfo" name="questionnaire.cartinfo" template="cartinfo.phtml" ifconfig="tsn_questionnaire/general/show_cart_info" />
+        </block>
+    </container>
+</layout>

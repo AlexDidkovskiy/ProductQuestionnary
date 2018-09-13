@@ -1,0 +1,11 @@
+<script type="text/x-magento-init">
+{
+    "*": {
+        "tsn/ajaxToCart" : <?php echo $block->getAjaxCartInitOptions(); ?>,
+        "tsn/ajaxstyle"    : <?php echo $block->getAjaxStyleInitOptions(); ?>
+    }
+}
+</script>
+<script>
+    window.ajaxCartLoaderOptions = <?php echo $block->getAjaxSidebarInitOptions(); ?>;
+</script>

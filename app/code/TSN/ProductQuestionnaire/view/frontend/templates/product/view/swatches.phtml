@@ -1,0 +1,34 @@
+<?php
+/**
+ * @author TSN-Media Team
+ * @copyright Copyright (c) 2018 TSN-Media (https://tsn-media.com)
+ * @package TSN_ProductQuestionnaire
+ */
+?>
+<?php /** @var $block \TSN\ProductQuestionnaire\Block\Product\Renderer\Configurable */ ?>
+<link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */
+echo $block->getViewFileUrl('Magento_Swatches::css/swatches.css') ?>"/>
+
+<div class="swatch-opt" data-role="swatch-options"></div>
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'mage/mage',
+        'tsn/swatchRenderer'
+    ], function ($) {
+        $('[data-role=swatch-options]').SwatchRenderer({
+            "jsonConfig": <?php /* @escapeNotVerified */
+            echo $swatchOptions = $block->getJsonConfig(); ?>,
+            "jsonSwatchConfig": <?php /* @escapeNotVerified */
+            echo $swatchOptions = $block->getJsonSwatchConfig(); ?>,
+            "selectorProduct": '#tsn-ajaxquestion-wrapper',
+            "mediaCallback": "<?php /* @escapeNotVerified */
+                echo $block->getMediaCallback() ?>",
+            "onlyMainImg": <?php /* @escapeNotVerified */
+            echo $block->getVar('change_only_base_image',
+                'Magento_Swatches') ?: 'false'; ?>
+        });
+    });
+
+</script>

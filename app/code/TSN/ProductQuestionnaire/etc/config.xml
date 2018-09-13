@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <tsn_questionnaire>
+            <general>
+                <enabled>1</enabled>
+                <question_form>Before buying this product, answer a few questions</question_form>
+                <message>You have recently added this product to your Cart</message>
+                <addtocart_btn_class>tocart</addtocart_btn_class>
+                <show_cart_info>0</show_cart_info>
+            </general>
+            <auto_close_popup>
+                <enabled_popupttl>0</enabled_popupttl>
+                <popupttl>25</popupttl>
+            </auto_close_popup>
+            <effects>
+                <animation>2</animation>
+            </effects>
+            <color_design>
+                <background_color>#ededed</background_color>
+                <header_background_color>#4ECECE</header_background_color>
+                <header_text_color>#fff</header_text_color>
+                <button_text_color>#fff</button_text_color>
+                <button_background_color>#4ECECE</button_background_color>
+            </color_design>
+        </tsn_questionnaire>
+    </default>
+</config>

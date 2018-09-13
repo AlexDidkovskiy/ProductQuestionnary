@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="TSN_ProductQuestionnaire::question_admin"
+             title="Questionnaire"
+             module="TSN_ProductQuestionnaire"
+             sortOrder="10"
+             dependsOnModule="TSN_Base"
+             parent="TSN_Base::all"
+             resource="TSN_ProductQuestionnaire::question_admin" />
+
+        <add id="TSN_ProductQuestionnaire::question_create"
+             title="Create New Question"
+             translate="title"
+             module="TSN_ProductQuestionnaire"
+             sortOrder="10"
+             parent="TSN_ProductQuestionnaire::question_admin"
+             action="questionnaire/question/edit"
+             resource="TSN_ProductQuestionnaire::question_edit"/>
+
+        <add id="TSN_ProductQuestionnaire::question_grid"
+             title="Questionnaire Grid"
+             module="TSN_ProductQuestionnaire"
+             sortOrder="20"
+             parent="TSN_ProductQuestionnaire::question_admin"
+             action="questionnaire/question/index"
+             resource="TSN_ProductQuestionnaire::question_edit"/>
+
+        <add id="TSN_ProductQuestionnaire::group_admin"
+             title="Group"
+             module="TSN_ProductQuestionnaire"
+             sortOrder="10"
+             dependsOnModule="TSN_Base"
+             parent="TSN_Base::all"
+             resource="TSN_ProductQuestionnaire::group_admin" />
+
+        <add id="TSN_ProductQuestionnaire::group_create"
+             title="Create New Group"
+             translate="title"
+             module="TSN_ProductQuestionnaire"
+             sortOrder="10"
+             parent="TSN_ProductQuestionnaire::group_admin"
+             action="questionnaire/group/edit"
+             resource="TSN_ProductQuestionnaire::group_edit"/>
+
+        <add id="TSN_ProductQuestionnaire::group_grid"
+             title="Group Grid"
+             module="TSN_ProductQuestionnaire"
+             sortOrder="20"
+             parent="TSN_ProductQuestionnaire::group_admin"
+             action="questionnaire/group/index"
+             resource="TSN_ProductQuestionnaire::group_edit"/>
+
+        <add id="TSN_ProductQuestionnaire::style_admin"
+             title="Style"
+             module="TSN_ProductQuestionnaire"
+             sortOrder="10"
+             dependsOnModule="TSN_Base"
+             parent="TSN_Base::all"
+             resource="TSN_ProductQuestionnaire::style" />
+
+        <add id="TSN_ProductQuestionnaire::config"
+             title="Configuration Questionnaire"
+             translate="title"
+             module="TSN_ProductQuestionnaire"
+             sortOrder="30"
+             parent="TSN_ProductQuestionnaire::style_admin"
+             action="adminhtml/system_config/edit/section/tsn_questionnaire"
+             resource="TSN_ProductQuestionnaire::config"/>
+    </menu>
+</config>

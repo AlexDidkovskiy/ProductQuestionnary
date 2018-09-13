@@ -1,0 +1,24 @@
+.config-nav-block.tsn-tab strong:before {
+    background: url(../images/logo.png) no-repeat;
+    width: 20px;
+    height: 19px;
+    content: '';
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: bottom;
+}
+
+.admin__menu [data-ui-id^="menu-tsn-"] .submenu-group-title span:before,
+.admin__menu [data-ui-id^="menu-magento-"] [data-ui-id^="menu-magento-"] [data-ui-id^="menu-tsn-"] span:before {
+    background: url(../images/logo-menu.png) no-repeat;
+    width: 20px;
+    height: 19px;
+    content: '';
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: top;
+}
+
+#tsn_base_extensions table td.value, #tsn_base_information table td.value{
+    vertical-align: bottom;
+}

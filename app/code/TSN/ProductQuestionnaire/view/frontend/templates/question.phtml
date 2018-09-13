@@ -1,0 +1,71 @@
+<?php
+/**
+ * @author TSN-Media Team
+ * @copyright Copyright (c) 2018 TSN-Media (https://tsn-media.com)
+ * @package TSN_ProductQuestionnaire
+ */
+?>
+<?php
+/** @var TSN\ProductQuestionnaire\Block\Question $block */
+?>
+<?php
+$product = $block->getProduct();
+$groupQuestionnaire = $product->getGroupQuestionnaire();
+$questions = $block->getQuestionByGroup($groupQuestionnaire);
+$formQuestion = $block->getQuestionForm();
+?>
+<?php if ($product->getQuestion()) { ?>
+    <div class="questionnaire-form-field">
+        <div class="product-name">
+            <h2><?php echo $product->getName() ?></h2>
+        </div>
+        <h3><?php echo $formQuestion ?></h3>
+        <?php foreach ($questions as $question) { ?>
+            <?php if ($question->getIsActive()) { ?>
+
+                <div class="input-wrap">
+                    <?php
+                    $id = $question->getQuestionnaireId();
+                    $content = $question->getQuestion();
+                    $type = $question->getTypeQuestion();
+                    ?>
+                    <label for="answer-<?php echo $id ?>"
+                           style="display: block; padding: 10px 0 5px;"><?php echo $content; ?></label>
+                    <input type="hidden" id="question-<?php echo $id ?>" name="tsn[<?= $id ?>][question]"
+                           value="<?php echo $content; ?>">
+                    <?php if ($type === 'select'): ?>
+                        <?php
+                            $answers = $question->getAnswersVariants();
+                            $answers = explode(';', $answers);
+                        ?>
+                        <select name="tsn[<?= $id ?>][answer]" id="answer-<?php echo $id ?>"
+                                data-validate='{"required":true, "validate-no-html-tags":true}'>
+                            <?php foreach ($answers as $answer): ?>
+                                <option value="<?php echo $answer ?>"><?php echo $answer ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    <?php elseif ($type === 'checkbox'): ?>
+                        <?php
+                            $answers = $question->getAnswersVariants();
+                            $answers = explode(';', $answers);
+                            $checkboxIndex = 0;
+                        ?>
+                        <?php foreach ($answers as $answer): ?>
+                            <div class="checkbox-box">
+                                <input type="<?php echo $type; ?>" name="tsn[<?php echo $id; ?>][answer][<?php echo $checkboxIndex;?>]"
+                                       id="answer-<?php echo $id; ?>-<?php echo $checkboxIndex;?>" value="<?php echo $answer; ?>">
+                                <label for="answer-<?php echo $id; ?>-<?php echo $checkboxIndex;?>"><?php echo $answer; ?></label>
+                            </div>
+                            <?php $checkboxIndex++;?>
+                        <?php endforeach; ?>
+
+                    <?php elseif ($type === 'text'): ?>
+                        <input type="<?php echo $type; ?>"
+                               data-validate='{"required":true, "validate-no-html-tags":true}'
+                               id="answer-<?php echo $id ?>" class="required-entry" name="tsn[<?php echo $id; ?>][answer]">
+                    <?php endif; ?>
+                </div>
+            <?php } ?>
+        <?php } ?>
+    </div>
+<?php } ?>

@@ -1,0 +1,29 @@
+{
+    "name": "tsn/base",
+    "description": "TSN-Media Base",
+    "require": {},
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "email": "info@tsn-media.com",
+            "name": "TSN-Media, LLC",
+            "homepage": "https://tsn-media.com/",
+            "role": "Developer"
+        },
+        {
+            "email": "oididkovskiy@gmail.com",
+            "name": "Didkovskiy Alexey"
+        }
+    ],
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "TSN\\Base\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+
+    }
+}

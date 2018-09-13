@@ -1,0 +1,38 @@
+<?php
+/**
+ * @author TSN-Media Team
+ * @copyright Copyright (c) 2018 TSN-Media (https://tsn-media.com)
+ * @package TSN_ProductQuestionnaire
+ */
+?>
+<?php /** @var $block Magento\Catalog\Block\Product\View */ ?>
+<?php $_product = $block->getProduct(); ?>
+<div class="tsn-login-popup-title center">
+    <strong><?php echo __('Error'); ?></strong>
+</div>
+<div class="tsn-ajaxstyle-popup-border ajaxcart-success-box">
+    <div class="error-content">
+        <p class="error-message"></p>
+        <h2 class="product-name"><?php echo $_product->getName() ?></h2>
+        <?php echo $block->getChildHtml('product_option'); ?>
+        <?php echo $block->getChildHtml('product_image'); ?>
+    </div>
+    <div class="ajaxcart-buttons ajaxstyle-buttons">
+        <button type="button" id="ajaxcart_cancel" class="action primary tsn-ajaxstyle-close"
+                title="<?php echo __('Continue Shopping') ?>">
+            <span><?php echo __('Continue Shopping ') ?></span>
+            <?php
+            if ($popupTTL = $this->helper('TSN\ProductQuestionnaire\Helper\Style')->getTTLAjaxStyle()) {
+                ?>
+                (<span class="ajaxstyle-autoclose-countdown"><?php echo $popupTTL ?></span>)
+                <?php
+            }
+            ?>
+        </button>
+        <button type="button" id="ajaxcart_checkout" class="action focus primary"
+                title="<?php echo __('View Cart') ?>"
+                onClick="window.location = '<?php echo $block->getUrl('checkout/cart'); ?>'">
+            <span><?php echo __('View Cart') ?></span>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "name": "tsn/module-productquestionnaire",
+  "description": "TSN-Media ProductQuestionnaire",
+  "require": {
+    "tsn/base": "1.0.*"
+  },
+  "type": "magento2-module",
+  "license": "GPL-3.0",
+  "authors": [
+    {
+      "email": "info@tsn-media.com",
+      "name": "TSN-Media, LLC",
+      "homepage": "https://tsn-media.com/",
+      "role": "Developer"
+    },
+    {
+      "email": "oididkovskiy@gmail.com",
+      "name": "Didkovskiy Alexey"
+    }
+  ],
+  "version": "1.0.1",
+  "autoload": {
+    "psr-4": {
+      "TSN\\ProductQuestionnaire\\": ""
+    },
+    "files": [
+      "registration.php"
+    ]
+  }
+}
