@@ -10,109 +10,104 @@
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">group_form.group_form_data_source</item>
+            <item name="deps" xsi:type="string">group_form.group_form_data_source</item>
         </item>
-        <item name="label" xsi:type="string" translate="true">Group Informationn</item>
+        <item name="label" xsi:type="string" translate="true">Group Information</item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">group_form</item>
+        </item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">TSN\ProductQuestionnaire\Block\Adminhtml\Group\Edit\Buttons\Back</item>
+            <item name="delete" xsi:type="string">TSN\ProductQuestionnaire\Block\Adminhtml\Group\Edit\Buttons\Delete</item>
+            <item name="reset" xsi:type="string">TSN\ProductQuestionnaire\Block\Adminhtml\Group\Edit\Buttons\Reset</item>
+            <item name="save" xsi:type="string">TSN\ProductQuestionnaire\Block\Adminhtml\Group\Edit\Buttons\Save</item>
+            <item name="save_and_continue" xsi:type="string">TSN\ProductQuestionnaire\Block\Adminhtml\Group\Edit\Buttons\SaveAndContinue</item>
+        </item>
     </argument>
-    <settings>
-        <buttons>
-            <button name="back" class="TSN\ProductQuestionnaire\Block\Adminhtml\Group\Edit\Buttons\Back" />
-            <button name="delete" class="TSN\ProductQuestionnaire\Block\Adminhtml\Group\Edit\Buttons\Delete" />
-            <button name="reset" class="TSN\ProductQuestionnaire\Block\Adminhtml\Group\Edit\Buttons\Reset" />
-            <button name="save" class="TSN\ProductQuestionnaire\Block\Adminhtml\Group\Edit\Buttons\Save" />
-            <button name="save_and_continue" class="TSN\ProductQuestionnaire\Block\Adminhtml\Group\Edit\Buttons\SaveAndContinue" />
-        </buttons>
-        <namespace>group_form</namespace>
-        <dataScope>data</dataScope>
-        <deps>
-            <dep>group_form.group_form_data_source</dep>
-        </deps>
-    </settings>
+
     <dataSource name="group_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">TSN\ProductQuestionnaire\Ui\DataProvider\GroupDataProvider</argument>
+            <argument name="name" xsi:type="string">group_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">questionnaire_group_id</argument>
+            <argument name="requestFieldName" xsi:type="string">questionnaire_group_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="questionnaire/group/save"/>
+                </item>
+            </argument>
+        </argument>
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
                 <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
             </item>
         </argument>
-        <settings>
-            <submitUrl path="questionnaire/group/save"/>
-        </settings>
-        <dataProvider class="TSN\ProductQuestionnaire\Ui\DataProvider\GroupDataProvider" name="group_form_data_source">
-            <settings>
-                <requestFieldName>questionnaire_group_id</requestFieldName>
-                <primaryFieldName>questionnaire_group_id</primaryFieldName>
-            </settings>
-        </dataProvider>
     </dataSource>
+
     <fieldset name="group_details">
-        <settings>
-            <label/>
-        </settings>
-        <field name="questionnaire_group_id" formElement="input">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true"></item>
+            </item>
+        </argument>
+        <field name="questionnaire_group_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Questionnaire Group ID</item>
+                    <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">data</item>
+                    <item name="dataScope" xsi:type="string">questionnaire_group_id</item>
                 </item>
             </argument>
-            <settings>
-                <dataType>text</dataType>
-                <visible>false</visible>
-                <dataScope>questionnaire_group_id</dataScope>
-            </settings>
         </field>
-        <field name="code_group" formElement="input">
+        <field name="code_group">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string">Code of Group</item>
+                    <item name="dataScope" xsi:type="string">code_group</item>
+                    <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">data</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
                 </item>
             </argument>
-            <settings>
-                <validation>
-                    <rule name="required-entry" xsi:type="boolean">true</rule>
-                </validation>
-                <dataType>text</dataType>
-                <label translate="true">Code of Group</label>
-                <dataScope>code_group</dataScope>
-            </settings>
         </field>
-        <field name="label_group" formElement="input">
+        <field name="label_group">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string">Label of Group</item>
+                    <item name="dataScope" xsi:type="string">label_group</item>
+                    <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">data</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
                 </item>
             </argument>
-            <settings>
-                <validation>
-                    <rule name="required-entry" xsi:type="boolean">true</rule>
-                </validation>
-                <dataType>text</dataType>
-                <label translate="true">Label of Group</label>
-                <dataScope>label_group</dataScope>
-            </settings>
         </field>
-        <field name="is_active" formElement="checkbox">
+        <field name="is_active">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="source" xsi:type="string">data</item>
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="label" xsi:type="string" translate="true">Enable Group</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="source" xsi:type="string">block</item>
+                    <item name="dataScope" xsi:type="string">is_active</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">1</item>
+                        <item name="false" xsi:type="number">0</item>
+                    </item>
                     <item name="default" xsi:type="number">1</item>
                 </item>
             </argument>
-            <settings>
-                <dataType>boolean</dataType>
-                <label translate="true">Enable Data</label>
-                <dataScope>is_active</dataScope>
-            </settings>
-            <formElements>
-                <checkbox>
-                    <settings>
-                        <valueMap>
-                            <map name="false" xsi:type="number">0</map>
-                            <map name="true" xsi:type="number">1</map>
-                        </valueMap>
-                        <prefer>toggle</prefer>
-                    </settings>
-                </checkbox>
-            </formElements>
         </field>
     </fieldset>
 </form>

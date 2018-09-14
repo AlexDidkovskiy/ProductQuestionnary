@@ -28,7 +28,7 @@ class Edit extends Group
         } else {
             $resultPage->addBreadcrumb(__('Edit Group'), __('Edit Group'));
             $resultPage->getConfig()->getTitle()->prepend(
-                $this->groupQuestionRepository->getById($groupQuestionId)->getGroup()
+                $this->groupRepository->getById($groupQuestionId)->getGroup()
             );
         }
         return $resultPage;

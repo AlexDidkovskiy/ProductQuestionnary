@@ -44,16 +44,6 @@ class Collection extends GroupCollection implements SearchResultInterface
     }
 
     /**
-     * @param null $limit
-     * @param null $offset
-     * @return array
-     */
-    public function getAllIds($limit = null, $offset = null)
-    {
-        return $this->getConnection()->fetchCol($this->_getAllIdsSelect($limit, $offset), $this->_bindParams);
-    }
-
-    /**
      * @return null
      */
     public function getSearchCriteria()
