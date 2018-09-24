@@ -83,9 +83,7 @@
             <argument name="data" xsi:type="array">
                 <item name="options" xsi:type="object">TSN\ProductQuestionnaire\Model\Config\Source\Type</item>
                 <item name="config" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="component" xsi:type="string">TSN_ProductQuestionnaire/js/form/element/options</item>
-                    </item>
+                    <item name="component" xsi:type="string">TSN_ProductQuestionnaire/js/form/element/options</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">Type of Question</item>
                     <item name="formElement" xsi:type="string">select</item>
